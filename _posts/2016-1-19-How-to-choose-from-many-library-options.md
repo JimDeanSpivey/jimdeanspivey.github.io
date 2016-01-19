@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to choose which librbary, when there are multiple open source libraries solving the same problem to chose from?
+title: How to choose which library, when there are multiple open source libraries solving the same problem to chose from?
 ---
 
 So after working on a project that uses the Twitter Streaming API in Java, I naturally went with the library that came with the platform stack that I was working (springframework). Not knowing that at the time, it was a mistake. I feel that the library is under-developed, has many bugs, and needs various fixes, via PR's, that other people made when they forked different versions to their own repo.  For example, adding support for geo location tweets, (and that is still not in the mainline). There also appears to be too much bueracracy from the corporate owner of that repository that requires extensive and very legally binding paperwork signing to be able to contribute any fixes. And since the original maintainers don't have any much activity as of late, I had to change to an alternative twitter client.
