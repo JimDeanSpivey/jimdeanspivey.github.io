@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
   
  ### Deploying it all to AWS
   
-Here is my workflow to bring it all online. Every step to go from **only** code to live.
+  Here is my workflow to bring it all online. Every step to go from **only** code to live.
   
   1. Run `terraform apply`
   2. SSH into to the bastion node in the AWS VPC.
