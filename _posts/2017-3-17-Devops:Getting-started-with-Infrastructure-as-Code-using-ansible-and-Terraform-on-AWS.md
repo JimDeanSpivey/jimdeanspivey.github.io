@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Devops:Getting started with Infrastructure as Code, some reasonable defaults for Ansible and Terraform. And integration testing it locally with Vagrant!
+title: Getting started with Infrastructure as Code: for Ansible and Terraform. And integration testing it locally with Vagrant!
 ---
 
 This post is a quick start set of default files and practices to get started storing all infrastructure (using Terraform) and how to provision it (using ansible). As opposed to just jumping in as a newbie (me) and exploring, I find it much faster to just jump in using a seasoned veterans (someone who knows this domain for awhile) defaults/best-practices. I also cover how I tested my infrastructure before deploying it, by using Vagrant. I also use Vagrant to test new incremental changes.
