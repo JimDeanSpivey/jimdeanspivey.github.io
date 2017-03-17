@@ -60,9 +60,9 @@ Vagrant.configure("2") do |config|
   To test it all, I run ansible like this: `ansible-playbook -i plays/local_dev.ini db.yml -vv`. If I want to just test incremental changes, I make sure to tag my roles (in my playbook). So if I want to just re-popuate the database, I run `ansible-playbook -i plays/local_dev.ini db.yml --tags "dbload" -vv`
   
   
-  ## Deploying it all to AWS
+ ### Deploying it all to AWS
   
-  Here is my workflow to bring it all online. Every step to go from **only** code to live.
+Here is my workflow to bring it all online. Every step to go from **only** code to live.
   
   1. Run `terraform apply`
   2. SSH into to the bastion node in the AWS VPC.
