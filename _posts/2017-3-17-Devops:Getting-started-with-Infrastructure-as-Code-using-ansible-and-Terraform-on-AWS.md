@@ -57,7 +57,8 @@ Vagrant.configure("2") do |config|
   
   And my ansible inventory file actually doesn't differ between `production.ini` and `development.ini` for ip address because both my Vagrant defined networks and AWS vpc use the same ip subnets (for Vagrant private networks) and also ip addresses as well. For example, `10.0.2.5` both point to the same instance in produciton AWS vpc and also the local Vagrant host. It's nice to have the least needed changes between production and development. Not just for replication but also less things to remember to re-config when going live. I also use parralels because virtualbox on OSX was causing the operating system to hang and freeze-up (requiring a hard reboot).
   
-  To test it all, I run ansible like this: `ansible-playbook -i plays/local_dev.ini db.yml -vv`. If I want to just test incremental changes, I make sure to tag my roles (in my playbook). So if I want to just re-popuate the database, I run `ansible-playbook -i plays/local_dev.ini db.yml --tags "dbload" -vv`
+  To test it all, I run ansible like this: `ansible-playbook -i plays/local_dev.ini db.yml -vv`. If I want to just test incremental changes, I make sure to tag my roles (in my playbook). So if I want to just re-popuate the database, I run `ansible-playbook -i plays/local_dev.ini db.yml --tags "dbload" -vv`.
+  
   
   ### Deploying it all to AWS
   
