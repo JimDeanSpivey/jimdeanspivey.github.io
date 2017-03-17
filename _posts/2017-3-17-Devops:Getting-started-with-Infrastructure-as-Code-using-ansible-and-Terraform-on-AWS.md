@@ -3,11 +3,11 @@ layout: post
 title: Devops:Getting started with Infrastructure as Code, some reasonable defaults for Ansible and Terraform. And integration testing it locally with Vagrant!
 ---
 
-This post is a quick start set of default files and practices to get started storing all infrastructure (using Terraform) and how to provision it (using ansible). As opposed to just jumping in as a newbie and exploring, I find it much faster to just jump in using a seasoned veterans defaults/best-practices.
+This post is a quick start set of default files and practices to get started storing all infrastructure (using Terraform) and how to provision it (using ansible). As opposed to just jumping in as a newbie (me) and exploring, I find it much faster to just jump in using a seasoned veterans (someone who knows this domain for awhile) defaults/best-practices. I also cover how I tested my infrastructure before deploying it, by using Vagrant. I also use Vagrant to test new incremental changes.
 
 ### Terraform quickstart with AWS
 
-Overall, this par is quite simple. Terraform itself can be jumped into without having to worry much about best practices as it really is rather simply and just abstracts away a lot of details (from specific cloud providers). So this is really more of a very brief quick start into AWS best practices. I found Nick Charlton's [Terraform: AWS VPC with Private and Public Subnets](https://nickcharlton.net/posts/terraform-aws-vpc.html) blog post to be very helpful for using Terraform with AWS. This helped me to get started using AWS infrastructure design using a public and private virtual clouds (vpc). And also having a bastion access node inside the public vpc.
+Overall, this part is quite simple. Terraform itself can be jumped into without having to worry much about best practices as it really is rather simply and just abstracts away a lot of details (from specific cloud providers). So this is really more of a very brief quick start into AWS common practices. I found Nick Charlton's [Terraform: AWS VPC with Private and Public Subnets](https://nickcharlton.net/posts/terraform-aws-vpc.html) blog post to be very helpful for using Terraform with AWS. This helped me to get started using AWS infrastructure design using a public and private virtual clouds (vpc). And also having a bastion access node inside the public vpc.
 
 ### Provisiong the created instances with ansible
 
@@ -65,7 +65,7 @@ Vagrant.configure("2") do |config|
   
   1. Run `terraform apply`
   2. SSH into to the bastion node in the AWS VPC.
-  3. Run a file called `install.sh` to bootstrap the bastion node so that it can provision everything. This file is versioned of course! This script installs ansible, git clones my "Infrastructure" repository, and also pulls down private keys needed to decrypt files in the "Infrastructure" repository (remember, I'm using git-crypt instead of ansible-valut). This script also runs `extensions/setup/role_update.sh` to download external roles.
+  3. Run a file called `install.sh` to bootstrap the bastion node so that it can provision everything. This file is versioned of course! This script installs ansible, git clones my "Infrastructure" repository, and also pulls down private keys needed to decrypt files in the "Infrastructure" repository (remember, I'm using git-crypt instead of ansible-valut). This script also runs `extensions/setup/role_update.sh` to download external roles. **The point of this file is so that I can perform all of these steps, without having to poke around, remember stuff off the top of my head, try to find some old lines, google stuff, etc.** This file should just work and bring everything up to speed for ansible to do the rest.
   4. Manually run the anible playbook(s). I prefer to manually run them, instead of invoking them from `install.sh`
   
   
