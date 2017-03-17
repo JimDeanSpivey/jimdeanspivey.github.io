@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
   1. Run `terraform apply`
   2. SSH into to the bastion node in the AWS VPC.
   3. Run a file called `install.sh` to bootstrap the bastion node so that it can provision everything. This file is versioned of course! This script installs ansible, git clones my "Infrastructure" repository, and also pulls down private keys needed to decrypt files in the "Infrastructure" repository (remember, I'm using git-crypt instead of ansible-valut). This script also runs `extensions/setup/role_update.sh` to download external roles. **The point of this file is so that I can perform all of these steps, without having to poke around, remember stuff off the top of my head, try to find some old lines, google stuff, etc.** This file should just work and bring everything up to speed for ansible to do the rest.
-  4. Manually run the anible playbook(s). I prefer to manually run them, instead of invoking them from `install.sh`
+  4. Manually run the ansible playbook(s). I prefer to manually run them, instead of invoking them from `install.sh`
   
   
   
